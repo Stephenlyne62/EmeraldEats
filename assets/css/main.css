@@ -544,11 +544,11 @@ h6 {
   }
 
   .navmenu ul {
-    display: none;
+    display: none; /* Hide the menu by default */
     list-style: none;
     position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
+    inset: 60px 20px 20px 20px; /* Adjust the inset for mobile */
+    padding: 0;
     margin: 0;
     border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
@@ -557,6 +557,8 @@ h6 {
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
+    display: flex;
+    flex-direction: column; /* Display links vertically */
   }
 
   .navmenu a,
@@ -566,9 +568,7 @@ h6 {
     font-family: var(--nav-font);
     font-size: 17px;
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block; /* Make the links block-level for vertical alignment */
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -607,25 +607,7 @@ h6 {
     transform: rotate(180deg);
   }
 
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
+  /* Show the menu when the mobile-nav-active class is added */
   .mobile-nav-active {
     overflow: hidden;
   }
@@ -649,9 +631,11 @@ h6 {
   }
 
   .mobile-nav-active .navmenu>ul {
-    display: block;
+    display: flex; /* Display the navbar links vertically */
+    flex-direction: column; /* Stack the links vertically */
   }
 }
+
 
 body {
   font-family: 'Cantarell', sans-serif;
@@ -1286,6 +1270,14 @@ section,
   font-family: var(--default-font);
 }
 
+/* Adjusting the Menu Images on Mobile */
+@media (max-width: 767px) {
+  .menu .tab-content img {
+    max-width: 80%;  /* Increase the max-width of the images */
+    height: auto;    /* Maintain aspect ratio */
+  }
+}
+
 @media (max-width: 575px) {
   .menu .nav-link h4 {
     font-size: 16px;
@@ -1820,6 +1812,49 @@ section,
 .event-item:hover {
   background-color: #f8f9fa;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Footer Layout */
+@media (max-width: 767px) {
+  #footer .footer > div {
+    display: flex;
+    flex-direction: column;  /* Stack the sections vertically */
+    align-items: center;  /* Center each element */
+    gap: 20px;  /* Add space between sections */
+    padding: 20px;  /* Add padding for better spacing */
+  }
+
+  /* Adjusting specific sections */
+  #footer .footer .contact, 
+  #footer .footer .follow-us {
+    display: flex;
+    flex-direction: column;  /* Stack contact details vertically */
+    align-items: center;  /* Center contact details */
+    text-align: center;  /* Center text */
+  }
+
+  /* Styling for contact section */
+  #footer .footer .contact i {
+    font-size: 24px;  /* Make the icon bigger */
+    margin-bottom: 10px;  /* Add some space between icon and text */
+  }
+
+  #footer .footer .social-links {
+    display: flex;
+    justify-content: center;  /* Center the social icons */
+    gap: 15px;  /* Space out the icons */
+  }
+
+  #footer .footer .credits {
+    text-align: center;  /* Center the credits text */
+    font-size: 0.9em;
+  }
+
+  /* Make sure the copyright text is centered */
+  #footer .footer .copyright {
+    text-align: center;
+    font-size: 1em;
+  }
 }
 
 
