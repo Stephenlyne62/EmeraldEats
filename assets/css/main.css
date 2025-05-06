@@ -11,6 +11,9 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+
+
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Amatic SC",  sans-serif;
@@ -1417,6 +1420,14 @@ section,
   overflow: hidden;
 }
 
+/* Apply the same size to all images inside the gallery */
+.gallery img {
+  width: 200px;      /* Set a fixed width */
+  height: 200px;     /* Set a fixed height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+
 .gallery .swiper-wrapper {
   height: auto;
 }
@@ -1568,56 +1579,77 @@ section,
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile Footer Layout */
-@media (max-width: 767px) {
-  #footer .footer > div {
-    display: flex;
-    flex-direction: column;  /* Stack the sections vertically */
-    align-items: center;  /* Center each element */
-    gap: 20px;  /* Add space between sections */
-    padding: 20px;  /* Add padding for better spacing */
-  }
-
-  /* Adjusting specific sections */
-  #footer .footer .contact, 
-  #footer .footer .follow-us {
-    display: flex;
-    flex-direction: column;  /* Stack contact details vertically */
-    align-items: center;  /* Center contact details */
-    text-align: center;  /* Center text */
-  }
-
-  /* Styling for contact section */
-  #footer .footer .contact i {
-    font-size: 24px;  /* Make the icon bigger */
-    margin-bottom: 10px;  /* Add some space between icon and text */
-  }
-
-  #footer .footer .social-links {
-    display: flex;
-    justify-content: center;  /* Center the social icons */
-    gap: 15px;  /* Space out the icons */
-  }
-
-  #footer .footer .credits {
-    text-align: center;  /* Center the credits text */
-    font-size: 0.9em;
-  }
-
-  /* Make sure the copyright text is centered */
-  #footer .footer .copyright {
-    text-align: center;
-    font-size: 1em;
-  }
-  @media (max-width: 767px) {
-    #footer .footer > div {
-      padding-left: 0 !important; /* Remove excessive left padding */
-      padding-right: 0;           /* Optional: ensure no extra right padding */
-      padding: 20px;              /* Maintain general padding for spacing */
-    }
-  }
-  
+.footer {
+  background: #000; /* black background */
+  color: #fff;       /* white text */
+  padding: 20px 0;
+  font-size: 14px;
 }
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #fff;
+}
+
+.social-links a {
+  margin-right: 10px;
+  color: #fff;  /* Default color */
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-links a.instagram {
+  color: #808080; /* Grey color for Instagram icon */
+}
+
+.social-links a:hover {
+  color: #ccc; /* optional hover effect */
+}
+
+/* Only apply these on desktop */
+@media (min-width: 769px) {
+  .footer-section.copyright {
+    margin-left: 100px;
+  }
+
+  .footer-section.follow-us {
+    margin-left: auto; /* pushes to far right */
+  }
+}
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 15px 0;
+  }
+}
+
 
 
 /*--------------------------------------------------------------
