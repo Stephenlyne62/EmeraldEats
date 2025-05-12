@@ -1660,7 +1660,7 @@ section,
 
 @media (max-width: 768px) {
   #hero h1 {
-    line-height: 1.6; /* Adjust this value to your preference */
+    line-height: 1.6 !important;
   }
 }
 
