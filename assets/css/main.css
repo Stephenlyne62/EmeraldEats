@@ -1660,7 +1660,7 @@ section,
 
 @media (max-width: 768px) {
   #hero h1 {
-    line-height: 1.1 !important;
+    line-height: 0.6 !important;
   }
 }
 
@@ -1669,11 +1669,6 @@ section,
   height: auto;
 }
 
-@media (max-width: 768px) {
-  .menu-img {
-    max-width: 80% !important;
-  }
-}
 
 
 

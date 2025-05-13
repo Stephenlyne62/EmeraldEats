@@ -48,6 +48,14 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    @media (max-width: 767px) {
+      #menu img.img-fluid {
+        max-width: 90% !important;
+      }
+    }
+  </style>
+  
 </head>
 
 <body class="index-page">
@@ -443,8 +451,6 @@
 
 </section><!-- /Gallery Section -->
 
-
-
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -542,6 +548,41 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+  
+      const eventList = document.querySelector(".event-list");
+      const eventItems = Array.from(document.querySelectorAll(".event-item"));
+  
+      // Extract event data and parse dates
+      const upcomingEvents = eventItems.map(item => {
+        const dateText = item.querySelector("strong")?.textContent?.trim();
+        if (!dateText) return null;
+  
+        const eventDate = new Date(dateText);
+        if (isNaN(eventDate)) return null;
+  
+        eventDate.setHours(0, 0, 0, 0);
+  
+        if (eventDate < today) return null;
+  
+        return { element: item, date: eventDate };
+      }).filter(event => event !== null);
+  
+      // Sort upcoming events by date
+      upcomingEvents.sort((a, b) => a.date - b.date);
+  
+      // Clear the list and re-append sorted elements
+      eventList.innerHTML = "";
+      upcomingEvents.forEach(event => {
+        eventList.appendChild(event.element);
+      });
+    });
+  </script>
+  
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
