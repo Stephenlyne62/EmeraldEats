@@ -1669,6 +1669,13 @@ section,
   height: auto;
 }
 
+/* Custom image sizing for large screens */
+@media (min-width: 992px) {
+  .hero-img-custom {
+    max-width: 75%;  /* Adjust this as needed */
+  }
+}
+
 
 
 
